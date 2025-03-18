@@ -4,34 +4,36 @@
   max-width: 800px;
   margin: 30px auto;
   padding: 20px;
-  background-color: #2e2e2e;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
 }
 
 .todoItem {
   display: flex;
   flex-direction: column;
-  background: #333;
+  background: var(--bg-color);
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 15px;
-  transition: background 0.3s;
+  transition: background-color var(--transition);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .todoItem:hover {
-  background: #444;
+  background: var(--card-bg);
 }
 
 .todoTitle {
   font-size: 18px;
   font-weight: bold;
-  color: #fff;
+  color: var(--text-color);
   margin-bottom: 5px;
 }
 
 .todoText {
-  color: #ddd;
+  color: var(--text-color);
   font-size: 16px;
   margin-bottom: 15px;
 }
@@ -44,15 +46,16 @@
 .button {
   padding: 8px 15px;
   border-radius: 5px;
-  color: #fff;
+  color: var(--text-color);
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color var(--transition);
   font-size: 14px;
   margin-bottom: 10px;
+  border: none;
 }
 
 .buttonToggle {
-  background-color: #4caf50;
+  background-color: var(--accent-color);
 }
 
 .buttonRemove {
