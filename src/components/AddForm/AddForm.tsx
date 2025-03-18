@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
-import { addTodo, Task } from "../../store/todoSlice";
+import { addTodo } from "../../store/todoSlice";
 import { useState } from "react";
 import styles from "./AddForm.module.css";
+import { Task } from "../../utils/types";
 
 function AddForm() {
   const dispatch = useDispatch();
