@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-export type Task = {
-  id: string;
-  title: string;
-  text: string;
-  completed: boolean;
-};
+import { Task } from "../utils/types";
+
 
 export type Todos = Task[];
 
@@ -47,8 +43,16 @@ const todosSlice = createSlice({
         todo.completed = !todo.completed;
       }
     },
+    editTodo: (state, action: PayloadAction<Task>) => {
+      const task = state.find((todo) => todo.id === action.payload.id);
+
+      if (task) {
+        task.title = action.payload.title;
+        task.text = action.payload.text;
+      };
+    },
   },
 });
 
-export const { addTodo, removeTodo, toggleTodo } = todosSlice.actions;
+export const { addTodo, removeTodo, toggleTodo, editTodo } = todosSlice.actions;
 export default todosSlice.reducer;
