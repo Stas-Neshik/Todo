@@ -24,17 +24,17 @@ function EditTodoModal({ task, onClose }: EditTodoModalProps) {
 
   const handleSubmit = () => {
     const updatedTask: Task = {
-      ...task, 
+      ...task,
       title: editedTask.title,
       text: editedTask.text,
     };
     dispatch(editTodo(updatedTask));
-    onClose(); 
+    onClose();
   };
 
   const handleSubmitKey = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      handleSubmit()
+    if (e.key === "Enter") {
+      handleSubmit();
     }
   };
 
@@ -57,9 +57,9 @@ function EditTodoModal({ task, onClose }: EditTodoModalProps) {
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <h2>Редактировать задачу</h2>
         <button className={styles.closeButton} onClick={onClose}>
-            ✖
-          </button>
-          <form onSubmit={handleSubmit} onKeyDown={handleSubmitKey}>
+          ✖
+        </button>
+        <form onSubmit={handleSubmit} onKeyDown={handleSubmitKey}>
           <input
             type="text"
             name="title"
@@ -73,7 +73,7 @@ function EditTodoModal({ task, onClose }: EditTodoModalProps) {
             onChange={handleChange}
             className={styles.textarea}
           />
-          
+
           <div className={styles.buttons}>
             <button type="submit" className={styles.buttonSave}>
               Сохранить
@@ -85,7 +85,6 @@ function EditTodoModal({ task, onClose }: EditTodoModalProps) {
             >
               Отмена
             </button>
-            
           </div>
         </form>
       </div>

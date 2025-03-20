@@ -1,27 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Task } from "../utils/types";
 
-
 export type Todos = Task[];
 
-const initialState: Task[] = [
+const initialState: Todos = [
   {
     id: "1",
     title: "Купить продукты",
     text: "Купить хлеб, молоко и яйца",
     completed: false,
+    date: "2025-03-20",
   },
   {
     id: "2",
     title: "Выучить Redux",
     text: "Разобраться с RTK, useSelector и useDispatch",
     completed: false,
+    date: "2025-03-15",
   },
   {
     id: "3",
     title: "Позаниматься спортом",
     text: "Сделать зарядку 15 минут",
     completed: true,
+    date: "2025-03-10",
   },
 ];
 
@@ -49,7 +51,7 @@ const todosSlice = createSlice({
       if (task) {
         task.title = action.payload.title;
         task.text = action.payload.text;
-      };
+      }
     },
   },
 });

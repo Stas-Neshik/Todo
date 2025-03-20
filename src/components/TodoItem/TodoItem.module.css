@@ -1,4 +1,3 @@
-
 .todoItem {
   display: flex;
   flex-direction: column;
@@ -49,7 +48,6 @@
 
 .buttonRemove {
   background-color: #f44336;
-  
 }
 
 .button:hover {
@@ -69,9 +67,31 @@
 }
 
 .buttonEdit:hover {
-  background-color: #7d42ff; 
+  background-color: #7d42ff;
 }
 
 .buttonToggle {
   background-color: #4caf50;
+}
+
+.todoDate {
+  font-size: 12px;
+  color: #888;
+  margin: 5px 0;
+}
+
+.dateGreen {
+  color: green;
+}
+
+.dateYellow {
+  color: yellow;
+}
+
+.dateRed {
+  color: red;
+}
+
+.dateFuture {
+  color: blue;
 }

@@ -16,6 +16,7 @@ function TodoList() {
           title={todo.title}
           text={todo.text}
           completed={todo.completed}
+          date={todo.date}
         />
       ))}
     </ul>
