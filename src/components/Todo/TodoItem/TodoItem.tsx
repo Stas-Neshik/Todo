@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toggleTodo, removeTodo } from "../../store/todoSlice";
+import { toggleTodo, removeTodo } from "../../../store/todoSlice";
 import EditTodoModal from "../EditTodoModal/EditTodoModal";
 import styles from "./TodoItem.module.css";
-import { Task } from "../../utils/types";
+import { Task } from "../../../utils/types";
 
 function TodoItem({ id, title, text, completed, date }: Task) {
   const dispatch = useDispatch();

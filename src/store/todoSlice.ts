@@ -1,31 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Task } from "../utils/types";
-
-export type Todos = Task[];
-
-const initialState: Todos = [
-  {
-    id: "1",
-    title: "Купить продукты",
-    text: "Купить хлеб, молоко и яйца",
-    completed: false,
-    date: "2025-03-20",
-  },
-  {
-    id: "2",
-    title: "Выучить Redux",
-    text: "Разобраться с RTK, useSelector и useDispatch",
-    completed: false,
-    date: "2025-03-15",
-  },
-  {
-    id: "3",
-    title: "Позаниматься спортом",
-    text: "Сделать зарядку 15 минут",
-    completed: true,
-    date: "2025-03-10",
-  },
-];
+import { initialState } from "../utils/initialState";
 
 const todosSlice = createSlice({
   name: "Todos",
@@ -33,28 +8,42 @@ const todosSlice = createSlice({
   reducers: {
     addTodo: (state, action: PayloadAction<Task>) => {
       const newTodo = action.payload;
-      state.unshift(newTodo);
+      state.tasks.unshift(newTodo);
     },
 
     removeTodo: (state, action: PayloadAction<string>) => {
-      return state.filter((todo) => todo.id !== action.payload);
+      return {
+        ...state,
+        tasks: state.tasks.filter((todo) => todo.id !== action.payload),
+      };
     },
     toggleTodo: (state, action: PayloadAction<string>) => {
-      const todo = state.find((todo) => todo.id === action.payload);
-      if (todo) {
-        todo.completed = !todo.completed;
+      const task = state.tasks.find((task) => task.id === action.payload);
+      if (task) {
+        if (task.completed === "newTask") {
+          task.completed = "inProgress";
+        } else if (task.completed === "inProgress") {
+          task.completed = "Done";
+        } else if (task.completed === "Done") {
+          task.completed = "newTask";
+        }
       }
+      console.log(task?.completed);
     },
     editTodo: (state, action: PayloadAction<Task>) => {
-      const task = state.find((todo) => todo.id === action.payload.id);
+      const task = state.tasks.find((todo) => todo.id === action.payload.id);
 
       if (task) {
         task.title = action.payload.title;
         task.text = action.payload.text;
       }
     },
+    setSort: (state, action: PayloadAction<string>) => {
+      state.sort = action.payload;
+    },
   },
 });
 
-export const { addTodo, removeTodo, toggleTodo, editTodo } = todosSlice.actions;
+export const { addTodo, removeTodo, toggleTodo, editTodo, setSort } =
+  todosSlice.actions;
 export default todosSlice.reducer;

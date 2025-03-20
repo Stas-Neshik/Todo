@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { toggleTheme } from "../../store/themeSlice";
+import { RootState } from "../../../store/store";
+import { toggleTheme } from "../../../store/themeSlice";
 import styles from "./themeButton.module.css";
 
 function ThemeButton() {

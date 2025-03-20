@@ -1,11 +1,12 @@
-import AddForm from "./components/AddForm/AddForm";
-import TodoList from "./components/TodoList/TodoList";
+import AddForm from "./components/Todo/AddForm/AddForm";
+
 import styles from "./App.module.css";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import { useEffect } from "react";
 
-import ThemeButton from "./components/ThemeButton/ThemeButton";
+import ThemeButton from "./components/UI/ThemeButton/ThemeButton";
+import TodoList from "./components/Todo/TodoList/TodoList";
 
 function App() {
   const currentTheme = useSelector((state: RootState) => state.theme);

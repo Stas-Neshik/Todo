@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../store/todoSlice";
+import { addTodo } from "../../../store/todoSlice";
 import { useState } from "react";
 import styles from "./AddForm.module.css";
-import { Task } from "../../utils/types";
+import { Task } from "../../../utils/types";
 
 function AddForm() {
   const dispatch = useDispatch();
@@ -10,8 +10,8 @@ function AddForm() {
   const [task, setTask] = useState<Omit<Task, "id">>({
     title: "",
     text: "",
-    completed: false,
-    date: new Date().toISOString().split('T')[0],
+    completed: "newTask",
+    date: "",
   });
 
   function handleChange(
@@ -39,8 +39,8 @@ function AddForm() {
     setTask({
       title: "",
       text: "",
-      completed: false,
-      date: new Date().toISOString().split('T')[0],
+      completed: "newTask",
+      date: new Date().toISOString().split("T")[0],
     });
   }
 

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import styles from "./EditTodoModal.module.css";
-import { editTodo } from "../../store/todoSlice";
-import { Task } from "../../utils/types";
+import { editTodo } from "../../../store/todoSlice";
+import { Task } from "../../../utils/types";
 
 type EditTodoModalProps = {
   task: Task;

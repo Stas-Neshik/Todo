@@ -1,0 +1,38 @@
+/* components/TodoList.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: var(--transition);
+}
+
+.sortContainer {
+  display: flex;
+  justify-content: flex-end; /* Размещение выпадающего списка справа */
+  margin-bottom: 20px; /* Отступ снизу */
+  padding: 0 10px;
+}
+
+/* Стили для выпадающего списка */
+.sortSelect {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid var(--text-color); /* Цвет границы */
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    border-color var(--transition);
+}
+
+.sortSelect:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color);
+}

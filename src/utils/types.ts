@@ -1,8 +1,10 @@
+export type Complete = "newTask" | "inProgress" | "Done";
+
 export type Task = {
   id: string;
   title: string;
   text: string;
-  completed: boolean;
+  completed: Complete;
   date: string;
 };
 
@@ -11,3 +13,5 @@ export type TodoState = {
   filter: string;
   sort: string;
 };
+
+export type Todos = Task[];
