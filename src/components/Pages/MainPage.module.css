@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  width: 100%;
+  transition: background-color var(--transition);
+}
+
+.title {
+  font-size: 32px;
+  color: var(--text-color);
+  font-weight: bold;
+  margin-bottom: 30px;
+  transition: color var(--transition);
+}
+
+.content {
+  width: 100%;
+  max-width: 900px;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color var(--transition);
+}

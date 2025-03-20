@@ -42,7 +42,9 @@ function TodoItem({ id, title, text, completed, date }: Task) {
     <li className={styles.todoItem}>
       <h3 className={styles.todoTitle}>{title}</h3>
       <p className={styles.todoText}>{text}</p>
+      <p className={styles.todoText}>{completed}</p>
       <p className={`${styles.todoDate} ${getDateColor(date)}`}>{date}</p>
+
       <button
         onClick={handleToggle}
         className={`${styles.button} ${styles.buttonToggle}`}
