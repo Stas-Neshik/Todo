@@ -23,8 +23,19 @@ function sortTasks(tasks: Todos, sortType: string) {
 function TodoList() {
   const todos = useSelector((state: RootState) => state.todos.tasks);
   const sort = useSelector((state: RootState) => state.todos.sort);
+  const filter = useSelector((state: RootState) => state.todos.filter); // Добавляем фильтр
 
-  const sortedTasks = useMemo(() => sortTasks(todos, sort), [todos, sort]);
+  // Фильтрация задач
+  const filteredTasks = useMemo(() => {
+    if (filter === "all") return todos;
+    return todos.filter((task) => task.completed === filter);
+  }, [todos, filter]);
+
+  // Сортировка после фильтрации
+  const sortedTasks = useMemo(
+    () => sortTasks(filteredTasks, sort),
+    [filteredTasks, sort],
+  );
 
   return (
     <div>

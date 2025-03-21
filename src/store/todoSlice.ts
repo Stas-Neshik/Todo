@@ -41,9 +41,12 @@ const todosSlice = createSlice({
     setSort: (state, action: PayloadAction<string>) => {
       state.sort = action.payload;
     },
+    setFilter: (state, action: PayloadAction<string>) => {
+      state.filter = action.payload;
+    },
   },
 });
 
-export const { addTodo, removeTodo, toggleTodo, editTodo, setSort } =
+export const { addTodo, removeTodo, toggleTodo, editTodo, setSort, setFilter } =
   todosSlice.actions;
 export default todosSlice.reducer;
