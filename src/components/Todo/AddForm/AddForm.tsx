@@ -3,9 +3,12 @@ import { addTodo } from "../../../store/todoSlice";
 import { useState } from "react";
 import styles from "./AddForm.module.css";
 import { Task } from "../../../utils/types";
+import Modal from "../../UI/Modal/Modal";
 
 function AddForm() {
   const dispatch = useDispatch();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [task, setTask] = useState<Omit<Task, "id">>({
     title: "",
@@ -30,51 +33,61 @@ function AddForm() {
 
     if (!task.title.trim() || !task.text.trim()) return;
 
+    setIsModalOpen(true);
+  }
+
+  function confirmAddTask() {
     const newTask: Task = {
-      id: Date.now().toString(),
       ...task,
+      date: new Date().toISOString().split("T")[0],
+      id: Date.now().toString(),
     };
 
     dispatch(addTodo(newTask));
+
     setTask({
       title: "",
       text: "",
       completed: "newTask",
-      date: new Date().toISOString().split("T")[0],
+      date: "",
     });
-  }
-
-  function handleKeyDown(
-    e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) {
-    if (e.key === "Enter") {
-      handleSubmit(e);
-    }
+    setIsModalOpen(false);
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <input
-        type="text"
-        name="title"
-        placeholder="Название задачи"
-        value={task.title}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        className={styles.input}
-      />
-      <textarea
-        name="text"
-        placeholder="Описание"
-        value={task.text}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        className={styles.textarea}
-      />
-      <button type="submit" className={styles.button}>
-        Добавить!
-      </button>
-    </form>
+    <>
+      {isModalOpen && (
+        <Modal
+          title="Подтвердите добавление"
+          onClose={() => setIsModalOpen(false)}
+          onConfirm={confirmAddTask}
+        >
+          <p>Вы действительно хотите добавить эту задачу?</p>
+        </Modal>
+      )}
+
+      {/* Форма для добавления задачи */}
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <input
+          type="text"
+          name="title"
+          placeholder="Название задачи"
+          value={task.title}
+          onChange={handleChange}
+          className={styles.input}
+        />
+        <textarea
+          name="text"
+          placeholder="Описание"
+          value={task.text}
+          onChange={handleChange}
+          className={styles.textarea}
+        />
+        <button type="submit" className={styles.button}>
+          Добавить!
+        </button>
+      </form>
+    </>
   );
 }
 

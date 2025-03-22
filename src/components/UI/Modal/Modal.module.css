@@ -1,0 +1,138 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  height: 285px;
+  max-width: 90%;
+  max-height: 80%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.closeButton {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0;
+}
+
+.closeButton:hover {
+  color: var(--accent-color);
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.modalBody {
+  margin-top: 15px;
+  color: var(--text-color, #333);
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.buttonConfirm {
+  background-color: var(--accent-color, #007bff);
+  color: var(--button-text-color, #fff);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonConfirm:hover {
+  opacity: 0.8;
+}
+
+.buttonCancel {
+  background-color: grey;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.buttonCancel:hover {
+  opacity: 0.8;
+}
+
+.noScroll {
+  overflow: hidden;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--text-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.buttonSave {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.buttonSave:hover {
+  background-color: #7d42ff;
+}
+
+.questionIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.image {
+  width: 200px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
