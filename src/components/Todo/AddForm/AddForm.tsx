@@ -62,7 +62,6 @@ function AddForm() {
           onClose={() => setIsModalOpen(false)}
           onConfirm={confirmAddTask}
         >
-          <p>Вы действительно хотите добавить эту задачу?</p>
         </Modal>
       )}
 

@@ -11,6 +11,7 @@ type ModalProps = {
   onConfirm?: () => void;
   confirmText?: string;
   isEditMode?: boolean;
+  children?: React.ReactNode;
 };
 
 function Modal({
