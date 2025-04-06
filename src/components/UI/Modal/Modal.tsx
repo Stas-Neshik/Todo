@@ -49,6 +49,7 @@ function Modal({
         text: editedTask.text,
         completed: "newTask",
         date: new Date().toISOString().split("T")[0],
+        priority: "medium",
       };
       dispatch(addTodo(newTask));
     }

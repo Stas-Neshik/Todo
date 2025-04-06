@@ -28,7 +28,18 @@ const todosSlice = createSlice({
           task.completed = "newTask";
         }
       }
-      console.log(task?.completed);
+    },
+    toggleTodoPriority: (state, action: PayloadAction<string>) => {
+      const task = state.tasks.find((task) => task.id === action.payload);
+      if (task) {
+        if (task.priority === "low") {
+          task.priority = "medium";
+        } else if (task.priority === "medium") {
+          task.priority = "high";
+        } else if (task.priority === "high") {
+          task.priority = "low";
+        }
+      }
     },
     editTodo: (state, action: PayloadAction<Task>) => {
       const task = state.tasks.find((todo) => todo.id === action.payload.id);
@@ -36,6 +47,7 @@ const todosSlice = createSlice({
       if (task) {
         task.title = action.payload.title;
         task.text = action.payload.text;
+        task.priority = action.payload.priority;
       }
     },
     setSort: (state, action: PayloadAction<string>) => {
@@ -44,9 +56,20 @@ const todosSlice = createSlice({
     setFilter: (state, action: PayloadAction<string>) => {
       state.filter = action.payload;
     },
+    setPriority: (state, action: PayloadAction<string>) => {
+      state.filter = action.payload;
+    },
   },
 });
 
-export const { addTodo, removeTodo, toggleTodo, editTodo, setSort, setFilter } =
-  todosSlice.actions;
+export const {
+  addTodo,
+  removeTodo,
+  toggleTodo,
+  toggleTodoPriority,
+  editTodo,
+  setSort,
+  setFilter,
+  setPriority,
+} = todosSlice.actions;
 export default todosSlice.reducer;

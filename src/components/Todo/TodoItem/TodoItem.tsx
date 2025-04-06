@@ -1,16 +1,24 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toggleTodo, removeTodo } from "../../../store/todoSlice";
+import {
+  toggleTodo,
+  removeTodo,
+  toggleTodoPriority,
+} from "../../../store/todoSlice";
 import styles from "./TodoItem.module.css";
 import { Task } from "../../../utils/types";
 import Modal from "../../UI/Modal/Modal";
 
-function TodoItem({ id, title, text, completed, date }: Task) {
+function TodoItem({ id, title, text, completed, date, priority }: Task) {
   const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
 
   function handleToggle() {
     dispatch(toggleTodo(id));
+  }
+
+  function handleTogglePriority() {
+    dispatch(toggleTodoPriority(id));
   }
 
   function handleRemove() {
@@ -44,12 +52,19 @@ function TodoItem({ id, title, text, completed, date }: Task) {
       <p className={styles.todoText}>{text}</p>
       <p className={styles.todoText}>{completed}</p>
       <p className={`${styles.todoDate} ${getDateColor(date)}`}>{date}</p>
+      <p className={styles.todoText}>{priority}</p>
 
       <button
         onClick={handleToggle}
         className={`${styles.button} ${styles.buttonToggle}`}
       >
         Изменить статус
+      </button>
+      <button
+        onClick={handleTogglePriority}
+        className={`${styles.button} ${styles.buttonToggle}`}
+      >
+        Изменить приоритет
       </button>
       <button onClick={handleEdit} className={styles.buttonEdit}>
         ✏️ Редактировать
@@ -64,7 +79,7 @@ function TodoItem({ id, title, text, completed, date }: Task) {
       {isEditing && (
         <Modal
           title="Редактировать задачу"
-          task={{ id, title, text, completed, date }}
+          task={{ id, title, text, completed, date, priority }}
           onClose={() => setIsEditing(false)}
           isEditMode={true}
         />

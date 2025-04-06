@@ -151,80 +151,6 @@
 ._footerLink_10wph_30:hover {
   color: var(--hover-color);
 }
-._modalOverlay_4rgm0_1 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #00000080;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-._modalContent_4rgm0_13 {
-  background: var(--card-bg);
-  padding: 20px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 15px #0000004d;
-  width: 90%;
-  max-width: 400px;
-  position: relative;
-}
-._closeButton_4rgm0_23 {
-  position: absolute;
-  top: 18px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 20px;
-  color: var(--text-color);
-  cursor: pointer;
-  padding: 0;
-}
-._closeButton_4rgm0_23:hover {
-  color: var(--accent-color);
-}
-._input_4rgm0_39,
-._textarea_4rgm0_40 {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--text-color);
-  border-radius: var(--border-radius);
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-._textarea_4rgm0_40 {
-  resize: vertical;
-  min-height: 80px;
-}
-._buttons_4rgm0_54 {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-._buttonSave_4rgm0_60 {
-  background-color: var(--accent-color);
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-}
-._buttonSave_4rgm0_60:hover {
-  background-color: #7d42ff;
-}
-._buttonCancel_4rgm0_73 {
-  background-color: gray;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-}
-._buttonCancel_4rgm0_73:hover {
-  background-color: #555;
-}
 ._todoItem_1nc4a_1 {
   display: flex;
   flex-direction: column;
@@ -305,6 +231,127 @@
 }
 ._dateFuture_1nc4a_95 {
   color: #00f;
+}
+._modalOverlay_1hhwy_1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #00000080;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+._modalContent_1hhwy_14 {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 15px #0000004d;
+  width: 400px;
+  height: 285px;
+  max-width: 90%;
+  max-height: 80%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+._closeButton_1hhwy_30 {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0;
+}
+._closeButton_1hhwy_30:hover {
+  color: var(--accent-color);
+}
+._title_1hhwy_46 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--text-color);
+}
+._modalBody_1hhwy_52 {
+  margin-top: 15px;
+  color: var(--text-color, #333);
+}
+._modalFooter_1hhwy_57 {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+._buttonConfirm_1hhwy_64 {
+  background-color: var(--accent-color, #007bff);
+  color: var(--button-text-color, #fff);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+._buttonConfirm_1hhwy_64:hover {
+  opacity: 0.8;
+}
+._buttonCancel_1hhwy_77 {
+  background-color: gray;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+._buttonCancel_1hhwy_77:hover {
+  opacity: 0.8;
+}
+._noScroll_1hhwy_90 {
+  overflow: hidden;
+}
+._input_1hhwy_94,
+._textarea_1hhwy_95 {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--text-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+._modalFooter_1hhwy_57 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+._buttonSave_1hhwy_110 {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+._buttonSave_1hhwy_110:hover {
+  background-color: #7d42ff;
+}
+._questionIcon_1hhwy_123 {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+._image_1hhwy_130 {
+  width: 200px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 ._sortContainer_ez40l_1 {
   display: flex;

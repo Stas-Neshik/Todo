@@ -1,43 +1,44 @@
 import { useDispatch } from "react-redux";
 import ThemeButton from "../../UI/ThemeButton/ThemeButton";
 import styles from "./Header.module.css";
-import { setFilter } from "../../../store/todoSlice";
+import { setPriority } from "../../../store/todoSlice";
 
 function Header() {
   const dispatch = useDispatch();
 
-  function filterAll() {
-    dispatch(setFilter("all"));
+  function filterHigh() {
+    dispatch(setPriority("high"));
   }
 
-  function filterDone() {
-    dispatch(setFilter("Done"));
+  function filterMedium() {
+    dispatch(setPriority("medium"));
   }
 
-  function filterProgress() {
-    dispatch(setFilter("inProgress"));
+  function filterLow() {
+    dispatch(setPriority("low"));
   }
 
-  function filterNew() {
-    dispatch(setFilter("newTask"));
+  function resetFilter() {
+    dispatch(setPriority("all"));
   }
 
   return (
     <header className={styles.header}>
       <h1 className={styles.logo}>Менеджер задач</h1>
       <nav className={styles.nav}>
-        <button className={styles.navButton} onClick={filterAll}>
+        <button className={styles.navButton} onClick={filterHigh}>
+          Высокий приоритет
+        </button>
+        <button className={styles.navButton} onClick={filterMedium}>
+          Средний приоритет
+        </button>
+        <button className={styles.navButton} onClick={filterLow}>
+          Низкий приоритет
+        </button>
+        <button className={styles.navButton} onClick={resetFilter}>
           Все задачи
         </button>
-        <button className={styles.navButton} onClick={filterProgress}>
-          В работе
-        </button>
-        <button className={styles.navButton} onClick={filterDone}>
-          Завершенные
-        </button>
-        <button className={styles.navButton} onClick={filterNew}>
-          Новые
-        </button>
+
         <ThemeButton />
       </nav>
     </header>

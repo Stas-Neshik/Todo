@@ -4,8 +4,9 @@ export type Task = {
   id: string;
   title: string;
   text: string;
-  completed: Complete;
+  completed: string;
   date: string;
+  priority: "low" | "medium" | "high";
 };
 
 export type TodoState = {
